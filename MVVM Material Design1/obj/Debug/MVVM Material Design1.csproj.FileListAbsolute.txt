@@ -1,0 +1,31 @@
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\MVVM Material Design1.exe.config
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\MVVM Material Design1.exe
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\MVVM Material Design1.pdb
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\MaterialDesignColors.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\MaterialDesignThemes.Wpf.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\System.Windows.Interactivity.dll
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.pdb
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.xml
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.csprojResolveAssemblyReference.cache
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\App.baml
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\Views\MainWindow.g.cs
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\App.g.cs
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\GeneratedInternalTypeHelper.g.cs
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1_MarkupCompile.cache
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1_MarkupCompile.lref
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\Views\MainWindow.baml
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.g.resources
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM_Material_Design1.Properties.Resources.resources
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.csproj.GenerateResource.Cache
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.exe
+c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.pdb
