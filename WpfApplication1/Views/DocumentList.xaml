@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="WpfApplication1.Views.DocumentList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:WpfApplication1.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="summary (last update 27/08/2016)" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignBody2TextBlock}" Foreground="DarkCyan"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="today" HorizontalAlignment="Center" Foreground="DarkOliveGreen"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="last 7 days" HorizontalAlignment="Center" Foreground="DarkOliveGreen"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="lifetime" HorizontalAlignment="Center" Foreground="DarkOliveGreen"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="331" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="2631" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="212322" HorizontalAlignment="Center"/>
+        
+        <!--<materialDesign:PackIcon Kind="FormatListBulleted" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto"/>-->
+        <DataGrid Grid.Row="4" Grid.ColumnSpan="3" x:Name="docGrid" CanUserSortColumns="True" CanUserAddRows="False" IsReadOnly="True"/>
+    </Grid>
+</UserControl>

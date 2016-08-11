@@ -85,9 +85,27 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\Batch.xaml.cs">
+      <DependentUpon>Batch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BatchSetting.xaml.cs">
+      <DependentUpon>BatchSetting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BatchWindow.xaml.cs">
       <DependentUpon>BatchWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Batch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BatchSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DocumentList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,6 +113,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\DocumentList.xaml.cs">
+      <DependentUpon>DocumentList.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

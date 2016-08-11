@@ -29,3 +29,5 @@ c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\M
 c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.csproj.GenerateResource.Cache
 c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.exe
 c:\users\kanomkrub\documents\visual studio 2015\Projects\MVVM Material Design1\MVVM Material Design1\obj\Debug\MVVM Material Design1.pdb
+D:\work\projects\FormBuilder\MVVM Material Design1\bin\Debug\MVVM Material Design1.exe.config
+D:\work\projects\FormBuilder\MVVM Material Design1\obj\Debug\MVVM Material Design1.pdb

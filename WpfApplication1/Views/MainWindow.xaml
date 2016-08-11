@@ -17,6 +17,7 @@
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
         <view:BatchWindow Grid.Column="0"/>
+        <view:Batch Grid.Column="2"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>
