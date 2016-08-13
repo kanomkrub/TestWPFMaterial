@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication1.Model;
 
 namespace WpfApplication1.Views
 {
@@ -20,28 +21,29 @@ namespace WpfApplication1.Views
     /// </summary>
     public partial class Batch : UserControl
     {
-        BatchSetting batchSettingControl = new BatchSetting();
-        DocumentList docListControl = new DocumentList();
+        //DocumentList docListControl = new DocumentList();
         public Batch()
         {
             InitializeComponent();
-            contentControl.Content = docListControl;
+            contentControl.Content = new DocumentList(Helper.selectedBatch.ExportPath);
             batchLabel.Text = "Document List..";
         }
-        public void MenuPopupButton_OnClick(object sender, RoutedEventArgs e)
+        public void Delete_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
         private void config_Checked(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = batchSettingControl;
+            var batchSetting3 = new BatchSetting3();
+            batchSetting3.SetData(Helper.selectedBatch);
+            contentControl.Content = batchSetting3;
             batchLabel.Text = "Settings";
         }
 
         private void config_UnChecked(object sender, RoutedEventArgs e)
         {
-            contentControl.Content = docListControl;
+            contentControl.Content = new DocumentList(Helper.selectedBatch.ExportPath);
             batchLabel.Text = "Document List..";
         }
     }

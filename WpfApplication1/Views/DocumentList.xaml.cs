@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,51 +22,49 @@ namespace WpfApplication1.Views
     /// </summary>
     public partial class DocumentList : UserControl
     {
-        public DocumentList()
+        ObservableCollection<FileInfo> ExportedFiles;
+        public DocumentList(string documentFolder)
         {
+            ExportedFiles = new ObservableCollection<FileInfo>();
             InitializeComponent();
-            docGrid.ItemsSource = Document.LoadCollectionData();
+            this.DataContext = ExportedFiles;
+            //docGrid.ItemsSource = Document.LoadCollectionData();
+            if (documentFolder != null) watch(documentFolder);
         }
 
-    }
-    public class Document
-    {
 
-        public int ID { get; set; }
-
-        public string Name { get; set; }
-
-        public DateTime ExportDate { get; set; }
-
-        public string Status { get; set; }
-        
-        public static List<Document> LoadCollectionData()
+        private void watch(string path)
         {
-            List<Document> doclist = new List<Document>();
-            doclist.Add(new Document()
+            foreach(var file in Directory.GetFiles(path))
             {
-                ID = 101,
-                Name = "document 1",
-                Status = "exported",
-                ExportDate = new DateTime(1975, 2, 23),
-            });
+                ExportedFiles.Add(new FileInfo(file));
+            }
+            
+            FileSystemWatcher watcher = new FileSystemWatcher();
+            watcher.Path = path;
+            //watcher.NotifyFilter = NotifyFilters.LastWrite;
+            watcher.Filter = "*.*";
+            //watcher.Changed += new FileSystemEventHandler(OnChanged);
+            watcher.Created += new FileSystemEventHandler(OnChanged);
+            watcher.EnableRaisingEvents = true;
+        }
 
-            doclist.Add(new Document()
-            {
-                ID = 201,
-                Name = "document 2",
-                Status = "exported",
-                ExportDate = new DateTime(1982, 4, 12),
-            });
+        void OnChanged(object sender, FileSystemEventArgs e)
+        {
+            if (e.ChangeType == WatcherChangeTypes.Created && File.Exists(e.FullPath))
+                    this.Dispatcher.Invoke(() => { ExportedFiles.Add(new FileInfo(e.FullPath)); });
+        }
 
-            doclist.Add(new Document()
+        private void docGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
             {
-                ID = 244,
-                Name = "document 3",
-                Status = "exported",
-                ExportDate = new DateTime(1985, 9, 11),
-            });
-            return doclist;
+                var file = ((FileInfo)((DataGrid)sender).SelectedItem).FullName;
+                System.Diagnostics.Process.Start(file);
+            }
+            catch(Exception ex)
+            {
+            }
         }
     }
 }

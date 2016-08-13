@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApplication1.Model;
+using WpfApplication1.Views;
 
 namespace WpfApplication1
 {
@@ -20,9 +25,18 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        BlankPage page = new BlankPage();
         public MainWindow()
         {
+            Helper.batchs = BatchModel.ListAllBatchs();
             InitializeComponent();
+            contentControl.Content = page;
+            BatchList.SelectedIndexChanged += SelectedChanged;
+        }
+        
+        private void SelectedChanged()
+        {
+            contentControl.Content = new Batch();
         }
     }
 }

@@ -16,8 +16,10 @@
             <ColumnDefinition Width="4"/>
             <ColumnDefinition Width="9*"/>
         </Grid.ColumnDefinitions>
-        <view:BatchWindow Grid.Column="0"/>
-        <view:Batch Grid.Column="2"/>
+        <view:BatchWindow x:Name="BatchList" Grid.Column="0"/>
+        <!--<view:Batch Grid.Column="2"/>-->
+        <!--<view:BlankPage Grid.Column="2"/>-->
+        <ContentControl x:Name="contentControl" Grid.Column="2"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch"/>
     </Grid>
 </Window>

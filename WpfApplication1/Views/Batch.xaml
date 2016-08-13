@@ -23,11 +23,7 @@
                 </ToggleButton>
                 <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel>
-                        <Button Content="Hello World" Click="MenuPopupButton_OnClick"/>
-                        <Separator/>
-                        <Button Content="Nice Popup" Click="MenuPopupButton_OnClick"/>
-                        <Separator/>
-                        <Button Content="Goodbye" Click="MenuPopupButton_OnClick"/>
+                        <Button Content="Delete" Click="Delete_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
                 <TextBlock x:Name="batchLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Documents list..</TextBlock>

@@ -1,18 +1,10 @@
 ﻿using MaterialDesignThemes.Wpf;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using System.IO;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using WpfApplication1.Model;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace WpfApplication1.Views
 {
@@ -21,13 +13,15 @@ namespace WpfApplication1.Views
     /// </summary>
     public partial class BatchWindow : UserControl
     {
+        public Action SelectedIndexChanged;
+
         public BatchWindow()
         {
             InitializeComponent();
         }
         private void OnDialogClosing(object sender, DialogClosingEventArgs eventArgs)
         {
-            Console.WriteLine("SAMPLE 1: Closing dialog with parameter: " + (eventArgs.Parameter ?? ""));
+            //Console.WriteLine("SAMPLE 1: Closing dialog with parameter: " + (eventArgs.Parameter ?? ""));
 
             //you can cancel the dialog close:
             //eventArgs.Cancel();
@@ -35,7 +29,21 @@ namespace WpfApplication1.Views
             if (!Equals(eventArgs.Parameter, true)) return;
 
             if (!string.IsNullOrWhiteSpace(SetNameDialog.Text))
-                testList.Items.Add(SetNameDialog.Text.Trim());
+            {
+                BatchModel newBatch = new BatchModel(SetNameDialog.Text.Trim());
+                Helper.batchs.Add(newBatch);
+                BatchModel.Save(newBatch);
+                testList.SelectedItem = newBatch;
+            }
+                //testList.Items.Add(SetNameDialog.Text.Trim());
         }
+
+        private void testList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var s = Helper.batchs;
+            Helper.selectedBatch = testList.SelectedItem as BatchModel;
+            SelectedIndexChanged();
+        }
+
     }
 }

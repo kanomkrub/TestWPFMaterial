@@ -19,15 +19,23 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="1" Text="summary (last update 27/08/2016)" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignBody2TextBlock}" Foreground="DarkCyan"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="summary" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignBody2TextBlock}" Foreground="DarkCyan"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="today" HorizontalAlignment="Center" Foreground="DarkOliveGreen"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="last 7 days" HorizontalAlignment="Center" Foreground="DarkOliveGreen"/>
         <TextBlock Grid.Row="1" Grid.Column="2" Text="lifetime" HorizontalAlignment="Center" Foreground="DarkOliveGreen"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="331" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="2631" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="2" Grid.Column="2" Text="212322" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Path=Count}" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Path=Count}" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="2" Text="{Binding Path=Count}" HorizontalAlignment="Center"/>
         
         <!--<materialDesign:PackIcon Kind="FormatListBulleted" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto"/>-->
-        <DataGrid Grid.Row="4" Grid.ColumnSpan="3" x:Name="docGrid" CanUserSortColumns="True" CanUserAddRows="False" IsReadOnly="True"/>
+        <DataGrid Grid.Row="4" AutoGenerateColumns="False" Grid.ColumnSpan="3" ItemsSource="{Binding}" 
+                  x:Name="docGrid" CanUserSortColumns="True" CanUserAddRows="False" IsReadOnly="True"
+                   MouseDoubleClick="docGrid_MouseDoubleClick" SelectionMode="Single">
+            <DataGrid.Columns>
+                <materialDesign:MaterialDataGridTextColumn MinWidth="200" Binding="{Binding Name}" Header="Name" />
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding CreationTime}" Header="Created"/>
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Length}" Header="Size"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

@@ -6,6 +6,7 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfApplication1.Views"
+             xmlns:localModel="clr-namespace:WpfApplication1.Model"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
@@ -57,10 +58,16 @@
                     </Button>
                 </Grid>
                 <TextBlock Style="{StaticResource MaterialDesignTitleTextBlock}">Batch Lists</TextBlock>
-                <ListBox x:Name="testList">
-                    <ListBoxItem>Test1</ListBoxItem>
-                    <ListBoxItem>Test2</ListBoxItem>
-                    
+                <ListBox x:Name="testList" SelectionChanged="testList_SelectionChanged"
+                         ItemsSource="{Binding Source={x:Static localModel:Helper.batchs}}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=Name}" />
+                                <!--<TextBox x:Name="ruleName" Text="{Binding Source={x:Static localModel:TestHolder.}}" />-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
         </md:DialogHost>
