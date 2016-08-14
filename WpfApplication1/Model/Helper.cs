@@ -13,5 +13,21 @@ namespace WpfApplication1.Model
     {
         public static ObservableCollection<BatchModel> batchs;
         public static BatchModel selectedBatch;
+        public static List<BatchTaskManager> batchManagers = new List<BatchTaskManager>();
+
+        public static void StartBatch(string id)
+        {
+            var batch = batchs.Single(t => t.Id == id);
+            var manager = new BatchTaskManager(batch);
+            manager.StartWatch();
+            batchManagers.Add(manager);
+        }
+        public static void StopBatch(string id)
+        {
+            var manager = batchManagers.SingleOrDefault(t => t.batch.Id == id);
+            if (manager == null) return;
+            manager.CancelBatch();
+            batchManagers.Remove(manager);
+        }
     }
 }

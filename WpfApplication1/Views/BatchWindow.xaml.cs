@@ -44,6 +44,5 @@ namespace WpfApplication1.Views
             Helper.selectedBatch = testList.SelectedItem as BatchModel;
             SelectedIndexChanged();
         }
-
     }
 }

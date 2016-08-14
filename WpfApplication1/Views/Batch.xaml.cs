@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,7 +26,9 @@ namespace WpfApplication1.Views
         public Batch()
         {
             InitializeComponent();
-            contentControl.Content = new DocumentList(Helper.selectedBatch.ExportPath);
+            if (DateTime.Now - Helper.selectedBatch.CreateDate < new TimeSpan(0,0,5)) //fake newly created batch
+                config_Checked(null, null);
+            else contentControl.Content = new DocumentList(Helper.selectedBatch.ExportPath);
             batchLabel.Text = "Document List..";
         }
         public void Delete_Click(object sender, RoutedEventArgs e)
@@ -45,6 +48,11 @@ namespace WpfApplication1.Views
         {
             contentControl.Content = new DocumentList(Helper.selectedBatch.ExportPath);
             batchLabel.Text = "Document List..";
+        }
+
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            new PaletteHelper().SetLightDark(dimToggle.IsChecked.GetValueOrDefault());
         }
     }
 }

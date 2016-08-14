@@ -32,6 +32,11 @@ namespace WpfApplication1
             InitializeComponent();
             contentControl.Content = page;
             BatchList.SelectedIndexChanged += SelectedChanged;
+
+            foreach(var batch in Helper.batchs)
+            {
+                Helper.StartBatch(batch.Id);
+            }
         }
         
         private void SelectedChanged()

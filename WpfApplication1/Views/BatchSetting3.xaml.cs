@@ -34,9 +34,18 @@ namespace WpfApplication1.Views
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            BatchModel.Save(Helper.selectedBatch);
-            SetData(Helper.selectedBatch);
-            
+            if (Validate())
+            {
+                BatchModel.Save(Helper.selectedBatch);
+                SetData(Helper.selectedBatch);
+                Helper.StopBatch(Helper.selectedBatch.Id);
+                Helper.StartBatch(Helper.selectedBatch.Id);
+            }
+        }
+
+        private bool Validate()
+        {
+            throw new NotImplementedException();
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)

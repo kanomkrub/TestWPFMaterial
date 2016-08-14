@@ -22,8 +22,10 @@
                     </materialDesign:ToggleButtonAssist.OnContent>
                 </ToggleButton>
                 <materialDesign:PopupBox DockPanel.Dock="Right" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
-                    <StackPanel>
-                        <Button Content="Delete" Click="Delete_Click"/>
+                    <StackPanel Orientation="Horizontal">
+                        <ToggleButton x:Name="dimToggle" Margin="8 0 16 0" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Checked"/>
+                        <TextBlock VerticalAlignment="Center"><materialDesign:PackIcon Kind="Lightbulb"/></TextBlock>
+                        <!--<Button Content="Delete" Click="Delete_Click"/>-->
                     </StackPanel>
                 </materialDesign:PopupBox>
                 <TextBlock x:Name="batchLabel" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">Documents list..</TextBlock>

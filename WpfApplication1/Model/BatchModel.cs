@@ -16,8 +16,8 @@ namespace WpfApplication1.Model
         public string Description { get; set; }
         public bool IsRealTime { get; set; }
         public bool IsEnable { get; set; }
-        public DateTime CreateDate { get; private set; }
-        public DateTime ModifyDate { get; private set; }
+        public DateTime CreateDate { get; set; }
+        public DateTime ModifyDate { get; set; }
         public byte[] BackgroundImage { get; set; }
         public string PdfInputPath { get; set; }
         public string ExportPath { get; set; }

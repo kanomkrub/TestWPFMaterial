@@ -23,7 +23,7 @@
             <!--</UniformGrid>-->
             <StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Margin="5" MinWidth="80" Content="Save" x:Name="saveButton" Click="saveButton_Click"/>
-                <Button Margin="5" MinWidth="120" Content="Cancel" x:Name="cancelButton" Click="cancelButton_Click"/>
+                <Button Margin="5" MinWidth="120" Content="Reset" x:Name="cancelButton" Click="cancelButton_Click"/>
                 <!--<Button Margin="5" MinWidth="40" Content="Delete" x:Name="deleteButton"/>-->
             </StackPanel>
         </Grid>

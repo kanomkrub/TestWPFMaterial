@@ -30,11 +30,11 @@
         <!--<materialDesign:PackIcon Kind="FormatListBulleted" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="Auto" Height="Auto"/>-->
         <DataGrid Grid.Row="4" AutoGenerateColumns="False" Grid.ColumnSpan="3" ItemsSource="{Binding}" 
                   x:Name="docGrid" CanUserSortColumns="True" CanUserAddRows="False" IsReadOnly="True"
-                   MouseDoubleClick="docGrid_MouseDoubleClick" SelectionMode="Single">
+                   MouseDoubleClick="docGrid_MouseDoubleClick" SelectionMode="Extended">
             <DataGrid.Columns>
                 <materialDesign:MaterialDataGridTextColumn MinWidth="200" Binding="{Binding Name}" Header="Name" />
                 <materialDesign:MaterialDataGridTextColumn Binding="{Binding CreationTime}" Header="Created"/>
-                <materialDesign:MaterialDataGridTextColumn Binding="{Binding Length}" Header="Size"/>
+                <materialDesign:MaterialDataGridTextColumn Header="Status"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
