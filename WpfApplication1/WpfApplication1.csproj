@@ -121,7 +121,7 @@
     </ApplicationDefinition>
     <Compile Include="BatchTaskManager.cs" />
     <Compile Include="Model\BatchModel.cs" />
-    <Compile Include="Model\Schedule.cs" />
+    <Compile Include="Model\LazySchedule.cs" />
     <Compile Include="Model\Helper.cs" />
     <Compile Include="PdfHelper.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />

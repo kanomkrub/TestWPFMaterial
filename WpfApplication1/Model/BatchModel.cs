@@ -21,7 +21,7 @@ namespace WpfApplication1.Model
         public byte[] BackgroundImage { get; set; }
         public string PdfInputPath { get; set; }
         public string ExportPath { get; set; }
-        public Schedule Schedule { get; set; }
+        public LazySchedule Schedule { get; set; }
 
         public BatchModel(string name, string description = null)
         {
@@ -32,6 +32,7 @@ namespace WpfApplication1.Model
             ModifyDate = DateTime.Now;
             IsEnable = false;
             IsRealTime = true;
+            Schedule = new LazySchedule();
         }
         public static void DeleteBatch(string name)
         {
@@ -52,7 +53,6 @@ namespace WpfApplication1.Model
             var batchFile = Path.Combine(specificFolder, batch.Name + ".json");
             var content = JsonConvert.SerializeObject(batch, Formatting.Indented);
             File.WriteAllText(batchFile, content);
-
         }
         public static ObservableCollection<BatchModel> ListAllBatchs()
         {

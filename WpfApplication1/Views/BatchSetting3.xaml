@@ -12,6 +12,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="4*"/>
@@ -21,7 +22,8 @@
             <local:BatchSetting2 x:Name="startSettings" Grid.Column="0" HorizontalContentAlignment="Stretch" MinWidth="200" Margin="10"/>
             <local:BatchSetting x:Name="detailSettings" Grid.Column="1" MinWidth="300" Margin="10" HorizontalContentAlignment="Stretch"/>
             <!--</UniformGrid>-->
-            <StackPanel Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal">
+            <TextBox Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" IsReadOnly="True" x:Name="savedLabel" />
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Button Margin="5" MinWidth="80" Content="Save" x:Name="saveButton" Click="saveButton_Click"/>
                 <Button Margin="5" MinWidth="120" Content="Reset" x:Name="cancelButton" Click="cancelButton_Click"/>
                 <!--<Button Margin="5" MinWidth="40" Content="Delete" x:Name="deleteButton"/>-->

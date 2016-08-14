@@ -30,6 +30,11 @@ namespace WpfApplication1.Views
         {
             enableToggle.IsChecked = batch.IsEnable;
             realTimeToggle.IsChecked = batch.IsRealTime;
+
+            this.DataContext = batch;
+
+            StartTimePicker.SelectedTime = batch.Schedule.StartTime;
+            //StopTimePicker.SelectedTime = batch.Schedule.StopTime;
         }
 
         private void enableToggle_Checked(object sender, RoutedEventArgs e)

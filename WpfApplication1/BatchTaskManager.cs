@@ -26,7 +26,7 @@ namespace WpfApplication1
             var executionDataflowBlockOptions = new ExecutionDataflowBlockOptions
             {
                 //MaxDegreeOfParallelism = 50,
-                MaxDegreeOfParallelism = 2,
+                //MaxDegreeOfParallelism = 2,
                 CancellationToken = cToken
             };
             doWorkAction = new ActionBlock<string>(inputFileName =>
@@ -43,7 +43,7 @@ namespace WpfApplication1
         {
             if (batch.IsEnable)
             {
-                foreach (var file in Directory.GetFiles(batch.PdfInputPath))
+                foreach (var file in Directory.GetFiles(batch.PdfInputPath, "*.pdf"))
                 {
                     doWorkAction.Post(file);
                 }
@@ -78,7 +78,11 @@ namespace WpfApplication1
             using (var outputStream = File.OpenWrite(outputFileName))
             using (var imageStream = new MemoryStream(backgroundImage))
             {
-                PdfHelper.AddBackgroundImage(inputStream, imageStream, outputStream);
+                try
+                {
+                    PdfHelper.AddBackgroundImage(inputStream, imageStream, outputStream);
+                }
+                catch (Exception ex) { } 
             }
             try { File.Delete(pdfFileName); } catch (Exception ex) { }
         }

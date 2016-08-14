@@ -18,9 +18,12 @@ namespace WpfApplication1.Model
         public static void StartBatch(string id)
         {
             var batch = batchs.Single(t => t.Id == id);
-            var manager = new BatchTaskManager(batch);
-            manager.StartWatch();
-            batchManagers.Add(manager);
+            if (batch.IsEnable)
+            {
+                var manager = new BatchTaskManager(batch);
+                manager.StartWatch();
+                batchManagers.Add(manager);
+            }
         }
         public static void StopBatch(string id)
         {

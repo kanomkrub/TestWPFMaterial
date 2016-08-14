@@ -37,10 +37,10 @@
                               Checked="realTimeToggle_Checked" Unchecked="realTimeToggle_Unchecked"/>
 
             <TextBlock Text="Schedule" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <StackPanel x:Name="schedulePanel" Grid.Row="2" Grid.Column="2" >
-                <materialDesign:TimePicker Margin="2,10,2,2" Is24Hours="True" x:Name="StartTimePicker" Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+            <StackPanel x:Name="schedulePanel" Grid.Row="2" Grid.Column="2">
+                <materialDesign:TimePicker Margin="2,10,2,2" SelectedTime="{Binding Path=Schedule.StartTime}" Is24Hours="True" x:Name="StartTimePicker" Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
                                    materialDesign:HintAssist.Hint="set start time.."  Width="120" HorizontalAlignment="Left"/>
-                <materialDesign:TimePicker Margin="2,10,2,2" Is24Hours="True" x:Name="StopTimePicker" Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+                <materialDesign:TimePicker Margin="2,10,2,2" SelectedTime="{Binding Path=Schedule.StopTime}" Is24Hours="True" x:Name="StopTimePicker" Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
                                    materialDesign:HintAssist.Hint="set stop time.."  Width="120" HorizontalAlignment="Left"/>
                 <WrapPanel Width="{Binding}">
                     <ToggleButton Content="Su" Style="{StaticResource MaterialDesignFlatPrimaryToggleButton}"
