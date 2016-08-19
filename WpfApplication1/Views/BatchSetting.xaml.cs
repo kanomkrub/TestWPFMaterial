@@ -32,17 +32,27 @@ namespace WpfApplication1.Views
 
         private void SetBackGroundImage(object sender, RoutedEventArgs e)
         {
-            var fileDialog = new OpenFileDialog() { Filter = "Image File|*.jpg;*.bmp;*.png" };
+            var fileDialog = new OpenFileDialog() { Filter = "Image File, PDF File|*.jpg;*.bmp;*.png;*.pdf" };
             var diagResult = fileDialog.ShowDialog();
             if (diagResult.GetValueOrDefault())
             {
                 bgFileNameTextBox.Text = fileDialog.FileName;
 
-                using (var ms = new MemoryStream())
-                using(var input = fileDialog.OpenFile())
+                if (fileDialog.FileName.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
                 {
-                    input.CopyTo(ms);
-                    batch.BackgroundImage = ms.ToArray();
+                    using (var streamInput = fileDialog.OpenFile())
+                    {
+                        batch.BackgroundImage = PdfHelper.ExtractImage(streamInput);
+                    }
+                }
+                else
+                {
+                    using (var ms = new MemoryStream())
+                    using (var input = fileDialog.OpenFile())
+                    {
+                        input.CopyTo(ms);
+                        batch.BackgroundImage = ms.ToArray();
+                    }
                 }
             }
         }
@@ -65,11 +75,23 @@ namespace WpfApplication1.Views
             {
                 return;
             }
-            var fileDialog = new OpenFileDialog() { Filter = "Pdf File|*.pdf" };
+            var fileDialog = new OpenFileDialog() { Filter = "Pdf File, Text File|*.pdf;*.txt" };
             var diagResult = fileDialog.ShowDialog();
             if (diagResult.GetValueOrDefault())
             {
+                if(fileDialog.FileName.EndsWith(".txt", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    var lines = File.ReadLines(fileDialog.FileName, Encoding.UTF8);
+                    var dic = PdfHelper.ExtractText(lines.First());
+                    fileDialog.FileName = System.IO.Path.GetTempFileName();
+                    using (Stream pdfTemp = File.OpenWrite(fileDialog.FileName)) {
+                        PdfHelper.WritePDF(dic, pdfTemp);
+                    }
+                }
+                //else if (fileDialog.FileName.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
+                //{
                 using (var pdfStream = fileDialog.OpenFile())
+                //using (var bgStream = new MemoryStream(PdfHelper.ExtractImage(File.OpenRead(@"D:\BG.PDF"))))
                 using (var bgStream = new MemoryStream(batch.BackgroundImage))
                 {
                     var tempFileName = System.IO.Path.GetTempFileName();
@@ -80,6 +102,7 @@ namespace WpfApplication1.Views
                     }
                     System.Diagnostics.Process.Start(tempFileName);
                 }
+                //}
             }
         }
 

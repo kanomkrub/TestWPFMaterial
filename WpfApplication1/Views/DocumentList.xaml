@@ -33,7 +33,7 @@
                    MouseDoubleClick="docGrid_MouseDoubleClick" SelectionMode="Extended">
             <DataGrid.Columns>
                 <materialDesign:MaterialDataGridTextColumn MinWidth="200" Binding="{Binding Name}" Header="Name" />
-                <materialDesign:MaterialDataGridTextColumn Binding="{Binding CreationTime}" Header="Created"/>
+                <materialDesign:MaterialDataGridTextColumn Binding="{Binding CreationTime}" SortDirection="Descending" Header="Created"/>
                 <materialDesign:MaterialDataGridTextColumn Header="Status"/>
             </DataGrid.Columns>
         </DataGrid>
