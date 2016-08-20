@@ -20,8 +20,15 @@ namespace WpfApplication1.Model
         public DateTime ModifyDate { get; set; }
         public byte[] BackgroundImage { get; set; }
         public string PdfInputPath { get; set; }
-        public string ExportPath { get; set; }
         public LazySchedule Schedule { get; set; }
+        public bool ExportToFile { get; set; }
+        public bool ExportToContentService { get; set; }
+        public string ExportPath { get; set; }
+        public string ExportUri { get; set; }
+        public string ExportUser { get; set; }
+        public string ExportPassword { get; set; }
+        public string ExportRepository { get; set; }
+        public string ExportFolder { get; set; }
 
         public BatchModel(string name, string description = null)
         {
@@ -33,6 +40,7 @@ namespace WpfApplication1.Model
             IsEnable = false;
             IsRealTime = true;
             Schedule = new LazySchedule();
+            ExportToContentService = true;
         }
         public static void DeleteBatch(string name)
         {

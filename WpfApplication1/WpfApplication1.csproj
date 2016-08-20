@@ -123,6 +123,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BatchTaskManager.cs" />
+    <Compile Include="ExportService.cs" />
     <Compile Include="Model\BatchModel.cs" />
     <Compile Include="Model\LazySchedule.cs" />
     <Compile Include="Model\Helper.cs" />

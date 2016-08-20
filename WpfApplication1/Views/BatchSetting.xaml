@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfApplication1.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="300">
     <GroupBox VerticalAlignment="Top" Header="Details" Style="{DynamicResource MaterialDesignCardGroupBox}">
         <GroupBox.HeaderTemplate>
             <DataTemplate>
@@ -27,7 +27,14 @@
                     <RowDefinition Height="40"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
-                    <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
@@ -38,7 +45,14 @@
                 <TextBlock Text="Last Modify Date" Margin="0,10,0,0" Grid.Row="3" HorizontalAlignment="Right"/>
                 <TextBlock Text="Background Image" Margin="0,10,0,0" Grid.Row="4" HorizontalAlignment="Right"/>
             <TextBlock Text="Pdf Input Path" Margin="0,10,0,0" Grid.Row="5" HorizontalAlignment="Right"/>
-            <TextBlock Text="Pdf Export Path" Margin="0,10,0,0" Grid.Row="6" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export to File" Margin="0,10,0,0" Grid.Row="7" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export FilePath" Margin="0,10,0,0" Grid.Row="8" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export to ContentServer" Margin="0,10,0,0" Grid.Row="9" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export ContentServer Path" Margin="0,10,0,0" Grid.Row="10" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export Repository" Margin="0,10,0,0" Grid.Row="11" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export Folder" Margin="0,10,0,0" Grid.Row="12" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export User" Margin="0,10,0,0" Grid.Row="13" HorizontalAlignment="Right"/>
+            <TextBlock Text="Export Password" Margin="0,10,0,0" Grid.Row="14" HorizontalAlignment="Right"/>
 
             <TextBox x:Name="nameTextBox" materialDesign:HintAssist.Hint="batch name.." IsReadOnly="True" Width="150" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" TextChanged="nameTextBox_TextChanged"/>
             <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal"> 
@@ -67,18 +81,25 @@
                         <materialDesign:PackIcon Kind="Folder" Width="15" Height="15"/>
                     </Button>
                     <TextBox x:Name="pdfPathTextBox" materialDesign:HintAssist.Hint=" select pdf input path.." Width="150" HorizontalAlignment="Left" IsReadOnly="True"/>
-                </StackPanel>
-            <StackPanel Grid.Column="2" Grid.Row="6" HorizontalAlignment="Left" Orientation="Horizontal">
+            </StackPanel>
+            <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Width="200" Margin="2" Click="Preview_Button_Click" >
+                Test Preview
+            </Button>
+            <ToggleButton IsEnabledChanged="exportToFile_IsEnabledChanged" IsChecked="True" IsEnabled="False" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="7" x:Name="exportToFile" VerticalAlignment="Center"/>
+            <StackPanel Grid.Column="2" Grid.Row="8" HorizontalAlignment="Left" Orientation="Horizontal">
                 <Button Padding="5" Margin="0,2,0,0" Click="exportTextBox_Click">
                     <materialDesign:PackIcon Kind="Folder" Width="15" Height="15"/>
                 </Button>
                 <TextBox x:Name="exportPathTextBox" materialDesign:HintAssist.Hint=" select export path.." Width="150" HorizontalAlignment="Left" IsReadOnly="True"/>
             </StackPanel>
-            <Button Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="3" Width="200" Margin="2" Click="Preview_Button_Click" >
-                    Test Preview
-                </Button>
-
-                <!--<Image x:Name="previewImage" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="10"/>-->
+            <ToggleButton IsEnabledChanged="exportToContentServer_IsEnabledChanged" HorizontalAlignment="Left" Grid.Column="2" Grid.Row="9" x:Name="exportToContentServer" VerticalAlignment="Center"/>
+            <TextBox TextChanged="contentServerPathTextBox_TextChanged" x:Name="contentServerPathTextBox" materialDesign:HintAssist.Hint="service uri." Grid.Column="2" Grid.Row="10" VerticalAlignment="Center"/>
+            <TextBox TextChanged="repositoryTextBox_TextChanged"  x:Name="repositoryTextBox" materialDesign:HintAssist.Hint="repository id." Grid.Column="2" Grid.Row="11" VerticalAlignment="Center"/>
+            <TextBox TextChanged="folderTextBox_TextChanged"  x:Name="folderTextBox" materialDesign:HintAssist.Hint="folder id." Grid.Column="2" Grid.Row="12" VerticalAlignment="Center"/>
+            <TextBox TextChanged="userTextBox_TextChanged"  x:Name="userTextBox" materialDesign:HintAssist.Hint="username" Grid.Column="2" Grid.Row="13" VerticalAlignment="Center"/>
+            <PasswordBox PasswordChanged="passwordTextBox_PasswordChanged"  x:Name="passwordTextBox" materialDesign:HintAssist.Hint="password" Grid.Column="2" Grid.Row="14" VerticalAlignment="Center"/>
+            
+            <!--<Image x:Name="previewImage" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="10"/>-->
                 <!--<WebBrowser x:Name="browser" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="10"/>-->
             </Grid>
         </GroupBox>

@@ -50,7 +50,7 @@
             <StackPanel>
                 <Grid>
                     <Image Source="..\Resources\logo.jpg" Stretch="None"/>
-                    <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="5,5,0,0">FormBuilder..</TextBlock>
+                    <TextBlock Style="{StaticResource MaterialDesignHeadlineTextBlock}" Margin="5,5,0,0"></TextBlock>
                     <Button Margin="0,0,5,-12" Width="35" Height="35" Style="{DynamicResource MaterialDesignFloatingActionLightButton}" 
                         HorizontalAlignment="Right" VerticalAlignment="Bottom"
                         Command="{x:Static md:DialogHost.OpenDialogCommand}">

@@ -67,6 +67,14 @@ namespace WpfApplication1.Views
             if (batch.BackgroundImage != null) bgFileNameTextBox.Text = "Existing Image";
             this.pdfPathTextBox.Text = batch.PdfInputPath;
             this.exportPathTextBox.Text = batch.ExportPath;
+
+            this.userTextBox.Text = batch.ExportUser;
+            this.contentServerPathTextBox.Text = batch.ExportUri;
+            this.repositoryTextBox.Text = batch.ExportRepository;
+            this.folderTextBox.Text = batch.ExportFolder;
+            this.exportToFile.IsChecked = batch.ExportToFile;
+            this.exportToContentServer.IsChecked = batch.ExportToContentService;
+            this.passwordTextBox.Password = batch.ExportPassword;
         }
 
         private void Preview_Button_Click(object sender, RoutedEventArgs e)
@@ -137,6 +145,45 @@ namespace WpfApplication1.Views
         {
             this.batch.Name = ((TextBox)sender).Text;
         }
+        
+        private void passwordTextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
 
+            batch.ExportPassword = passwordTextBox.Password;
+        }
+
+        private void userTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            batch.ExportUser = userTextBox.Text;
+        }
+
+        private void folderTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            batch.ExportFolder = folderTextBox.Text;
+        }
+
+        private void repositoryTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            batch.ExportRepository = repositoryTextBox.Text;
+
+        }
+
+        private void contentServerPathTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            batch.ExportUri = contentServerPathTextBox.Text;
+        }
+
+        private void exportToContentServer_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+            batch.ExportToContentService = this.exportToContentServer.IsEnabled;
+        }
+
+        private void exportToFile_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            batch.ExportToFile = exportToFile.IsEnabled;
+
+        }
     }
 }

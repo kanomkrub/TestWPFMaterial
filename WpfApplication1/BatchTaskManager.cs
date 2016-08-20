@@ -90,6 +90,13 @@ namespace WpfApplication1
                     }
                     catch (Exception ex) { }
                 }
+                try
+                {
+                    if (batch.ExportToContentService)
+                    {
+                        ExportService.Export(outputFileName, batch);
+                    }
+                }catch(Exception ex) { }
             }
             else if(inputFileName.EndsWith(".txt", StringComparison.InvariantCultureIgnoreCase))
             {
@@ -120,6 +127,14 @@ namespace WpfApplication1
                         }
                         catch (Exception ex) { }
                     }
+                    try
+                    {
+                        if (batch.ExportToContentService)
+                        {
+                            ExportService.Export(outputFileName2, batch);
+                        }
+                    }
+                    catch (Exception ex) { }
                 }
             }
             try { File.Delete(inputFileName); } catch (Exception ex) { }
