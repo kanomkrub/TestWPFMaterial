@@ -71,14 +71,14 @@ namespace WpfApplication1
             var culture = CultureInfo.CreateSpecificCulture("th-TH");
             //var tempFileName = Path.GetTempFileName();
             //Document doc = new Document(new Rectangle(595, 420), 0, 0, 0, 0);
-            Document doc = new Document(PageSize.A5.Rotate(), 5, 0, 0, 0);
+            Document doc = new Document(PageSize.A5.Rotate(), 20, 20, 10, 10);
             //var output = File.OpenWrite(tempFileName);
             var writer = PdfWriter.GetInstance(doc, output);
             //var Font = BaseFont.CreateFont()
             var baseFont = BaseFont.CreateFont("angsa.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-            var defaultFont = new Font(baseFont, 12, Font.NORMAL);
-            var boldFont = new Font(baseFont, 12, Font.BOLD);
-            var headerFont = new Font(baseFont, 14, Font.BOLD);
+            var defaultFont = new Font(baseFont, 11, Font.NORMAL);
+            var boldFont = new Font(baseFont, 11, Font.BOLD);
+            var headerFont = new Font(baseFont, 17, Font.BOLD);
             doc.Open();
             var taxPersonId = string.IsNullOrWhiteSpace(dic["item53"]) ? "0994000165200" : dic["item53"];
             doc.Add(new Paragraph("ใบเสร็จรับเงิน/ใบกำกับภาษี", headerFont) { Alignment = Element.ALIGN_CENTER });
@@ -95,7 +95,7 @@ namespace WpfApplication1
             ct.Go();
 
             //ct.SetSimpleColumn()
-            var phrase1 = new Phrase(60);
+            var phrase1 = new Phrase(85);
             phrase1.Add(new Chunk("ชื่อผู้ใช้ไฟฟ้า     ", boldFont));
             phrase1.Add(new Chunk(dic.GetValue("item28"), defaultFont));
             doc.Add(phrase1);
@@ -120,64 +120,73 @@ namespace WpfApplication1
             doc.Add(new Paragraph());
 
             ColumnText ct2 = new ColumnText(cb);
-            ct2.SetSimpleColumn(5, 200, 60, 280, 0, Element.ALIGN_LEFT);
+            ct2.SetSimpleColumn(20, 170, 85, 250, 0, Element.ALIGN_LEFT);
             ct2.AddElement(new Paragraph("วันจดครั้งหลัง ", boldFont) { Alignment = Element.ALIGN_LEFT });
+            ct2.AddElement(new Paragraph(" ", boldFont) { Alignment = Element.ALIGN_LEFT });
             ct2.AddElement(new Paragraph(DateTime.ParseExact(dic.GetValue("item32"), "ddMMyy", culture).ToString("dd/MM/yy", culture), defaultFont) { Alignment = Element.ALIGN_LEFT });
             ct2.Go();
 
             ColumnText ct3 = new ColumnText(cb);
-            ct3.SetSimpleColumn(50, 200, 100, 280, 0, Element.ALIGN_LEFT);
-            ct3.AddElement(new Paragraph("เลขที่ใบแจ้ง ", boldFont) { Alignment = Element.ALIGN_RIGHT });
-            ct3.AddElement(new Paragraph(dic.GetValue("item33"), defaultFont) { Alignment = Element.ALIGN_RIGHT });
+            ct3.SetSimpleColumn(85, 170, 150, 250, 0, Element.ALIGN_LEFT);
+            ct3.AddElement(new Paragraph("เลขที่ใบแจ้ง ", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct3.AddElement(new Paragraph(" ", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct3.AddElement(new Paragraph(dic.GetValue("item33"), defaultFont) { Alignment = Element.ALIGN_CENTER });
             ct3.Go();
 
 
             ColumnText ct4 = new ColumnText(cb);
-            ct4.SetSimpleColumn(100, 200, 150, 280, 0, Element.ALIGN_RIGHT);
+            ct4.SetSimpleColumn(150, 170, 200, 250, 0, Element.ALIGN_RIGHT);
             ct4.AddElement(new Paragraph("หน่วย ", boldFont) { Alignment = Element.ALIGN_RIGHT });
+            ct4.AddElement(new Paragraph(" ", boldFont) { Alignment = Element.ALIGN_LEFT });
             ct4.AddElement(new Paragraph(dic.GetValue("item34").TrimStart('0'), defaultFont) { Alignment = Element.ALIGN_RIGHT });
             ct4.Go();
 
 
             ColumnText ct5 = new ColumnText(cb);
-            ct5.SetSimpleColumn(150, 200, 200, 280, 0, Element.ALIGN_RIGHT);
+            ct5.SetSimpleColumn(200, 170, 270, 250, 0, Element.ALIGN_RIGHT);
             ct5.AddElement(new Paragraph("ค่าไฟฟ้า ", boldFont) { Alignment = Element.ALIGN_RIGHT });
+            ct5.AddElement(new Paragraph(" ", boldFont) { Alignment = Element.ALIGN_LEFT });
             ct5.AddElement(new Paragraph(dic.GetValue("item35").Insert(11, ".").TrimStart('0'), defaultFont) { Alignment = Element.ALIGN_RIGHT });
             ct5.Go();
 
             ColumnText ct6 = new ColumnText(cb);
-            ct6.SetSimpleColumn(200, 200, 250, 280, 0, Element.ALIGN_RIGHT);
+            ct6.SetSimpleColumn(270, 170, 320, 250, 0, Element.ALIGN_RIGHT);
             ct6.AddElement(new Paragraph("VAT 7% ", boldFont) { Alignment = Element.ALIGN_RIGHT });
+            ct6.AddElement(new Paragraph(" ", boldFont) { Alignment = Element.ALIGN_LEFT });
             ct6.AddElement(new Paragraph(dic.GetValue("item36").Insert(11, ".").TrimStart('0'), defaultFont) { Alignment = Element.ALIGN_RIGHT });
             ct6.Go();
 
             ColumnText ct7 = new ColumnText(cb);
-            ct7.SetSimpleColumn(250, 200, 320, 280, 0, Element.ALIGN_RIGHT);
+            ct7.SetSimpleColumn(320, 170, 390, 250, 0, Element.ALIGN_RIGHT);
             ct7.AddElement(new Paragraph("จำนวนเงิน ", boldFont) { Alignment = Element.ALIGN_RIGHT });
+            ct7.AddElement(new Paragraph(" ", boldFont) { Alignment = Element.ALIGN_LEFT });
             ct7.AddElement(new Paragraph(dic.GetValue("item37").Insert(11, ".").TrimStart('0'), defaultFont) { Alignment = Element.ALIGN_RIGHT });
             ct7.Go();
 
 
             ColumnText ct8 = new ColumnText(cb);
-            ct8.SetSimpleColumn(320, 200, 400, 280, 0, Element.ALIGN_CENTER);
-            ct8.AddElement(new Paragraph("จำนวนวันคิดดอกเบี้ย ", boldFont) { Alignment = Element.ALIGN_RIGHT });
-            ct8.AddElement(new Paragraph(int.Parse(dic.GetValue("item52")).ToString(), defaultFont) { Alignment = Element.ALIGN_RIGHT });
+            ct8.SetSimpleColumn(410, 170, 460, 250, 0, Element.ALIGN_CENTER);
+            ct8.AddElement(new Paragraph("จำนวนวัน", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct8.AddElement(new Paragraph("คิดดอกเบี้ย", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct8.AddElement(new Paragraph(int.Parse(dic.GetValue("item52")).ToString(), defaultFont) { Alignment = Element.ALIGN_CENTER });
             ct8.Go();
 
             ColumnText ct9 = new ColumnText(cb);
-            ct9.SetSimpleColumn(400, 200, 480, 280, 0, Element.ALIGN_RIGHT);
-            ct9.AddElement(new Paragraph("ดอกเบี้ยผิดนัด ", boldFont) { Alignment = Element.ALIGN_RIGHT });
-            ct9.AddElement(new Paragraph(double.Parse(dic.GetValue("item51").Replace(' ', '0')).ToString("0.00"), defaultFont) { Alignment = Element.ALIGN_RIGHT });
+            ct9.SetSimpleColumn(470, 170, 530, 250, 0, Element.ALIGN_RIGHT);
+            ct9.AddElement(new Paragraph("ดอกเบี้ย ", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct9.AddElement(new Paragraph("ผิดนัด ", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct9.AddElement(new Paragraph(double.Parse(dic.GetValue("item51").Replace(' ', '0')).ToString("0.00"), defaultFont) { Alignment = Element.ALIGN_CENTER });
             ct9.Go();
 
             ColumnText ct10 = new ColumnText(cb);
-            ct10.SetSimpleColumn(480, 200, 580, 280, 0, Element.ALIGN_RIGHT);
-            ct10.AddElement(new Paragraph("FT (บาท/หน่วย) ", boldFont) { Alignment = Element.ALIGN_RIGHT });
-            ct10.AddElement(new Paragraph(dic.GetValue("item44"), defaultFont) { Alignment = Element.ALIGN_RIGHT });
+            ct10.SetSimpleColumn(530, 170, 580, 250, 0, Element.ALIGN_RIGHT);
+            ct10.AddElement(new Paragraph("FT", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct10.AddElement(new Paragraph("(บาท/หน่วย)", boldFont) { Alignment = Element.ALIGN_CENTER });
+            ct10.AddElement(new Paragraph(dic.GetValue("item44"), defaultFont) { Alignment = Element.ALIGN_CENTER });
             ct10.Go();
 
             ColumnText ct11 = new ColumnText(cb);
-            ct10.SetSimpleColumn(400, 50, 580, 200, 0, Element.ALIGN_RIGHT);
+            ct10.SetSimpleColumn(400, 40, 580, 180, 0, Element.ALIGN_RIGHT);
             ct10.AddElement(new Paragraph("รวมเงิน", defaultFont) { Alignment = Element.ALIGN_LEFT });
             ct10.AddElement(new Paragraph("รวมภาษีมูลค่าเพิ่ม ", defaultFont) { Alignment = Element.ALIGN_LEFT });
             ct10.AddElement(new Paragraph("รวม ", defaultFont) { Alignment = Element.ALIGN_LEFT });
@@ -186,7 +195,7 @@ namespace WpfApplication1
             ct10.Go();
 
             ColumnText ct12 = new ColumnText(cb);
-            ct10.SetSimpleColumn(350, 50, 590, 200, 0, Element.ALIGN_RIGHT);
+            ct10.SetSimpleColumn(330, 40, 570, 180, 0, Element.ALIGN_RIGHT);
             ct10.AddElement(new Paragraph(dic.GetValue("item35").Insert(11, ".").TrimStart('0') + "  บาท", defaultFont) { Alignment = Element.ALIGN_RIGHT });
             ct10.AddElement(new Paragraph(dic.GetValue("item36").Insert(11, ".").TrimStart('0') + "  บาท", defaultFont) { Alignment = Element.ALIGN_RIGHT });
             ct10.AddElement(new Paragraph(dic.GetValue("item37").Insert(11, ".").TrimStart('0') + "  บาท", defaultFont) { Alignment = Element.ALIGN_RIGHT });
@@ -196,7 +205,7 @@ namespace WpfApplication1
             ct10.Go();
 
 
-            doc.Add(new Paragraph(250, "ชำระผ่าน " + dic.GetValue("item55").Trim(), defaultFont));
+            doc.Add(new Paragraph(180, "ชำระผ่าน " + dic.GetValue("item55").Trim(), defaultFont));
             doc.Add(new Paragraph("FICA Doc. " + dic.GetValue("item48").Trim(), defaultFont));
             //var phrase5 = new Phrase();
             //phrase5.Add(new Chunk("วันจดครั้งหลัง    เลขที่ใบแจ้ง",boldFont));

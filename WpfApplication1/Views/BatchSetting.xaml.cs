@@ -165,7 +165,6 @@ namespace WpfApplication1.Views
         private void repositoryTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             batch.ExportRepository = repositoryTextBox.Text;
-
         }
 
         private void contentServerPathTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -182,7 +181,8 @@ namespace WpfApplication1.Views
 
         private void exportToFile_IsEnabledChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            batch.ExportToFile = exportToFile.IsEnabled;
+            if (batch != null)
+                batch.ExportToFile = exportToFile.IsEnabled;
 
         }
     }
