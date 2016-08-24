@@ -83,17 +83,7 @@ namespace WpfApplication1
             var taxPersonId = string.IsNullOrWhiteSpace(dic["item53"]) ? "0994000165200" : dic["item53"];
             doc.Add(new Paragraph("ใบเสร็จรับเงิน/ใบกำกับภาษี", headerFont) { Alignment = Element.ALIGN_CENTER });
             doc.Add(new Paragraph("เลขประจำตัวผู้เสียภาษีอากร " + taxPersonId, defaultFont) { Alignment = Element.ALIGN_CENTER });
-
-
-            PdfContentByte cb = writer.DirectContent;
-            ColumnText ct = new ColumnText(cb);
-
-            ct.SetSimpleColumn(420, 260, 500, 380, 0, Element.ALIGN_LEFT);
-            ct.AddElement(new Paragraph("เลขที่ " + dic.GetValue("item4"), defaultFont));
-            ct.AddElement(new Paragraph("สำนักงานใหญ่", defaultFont));
-            ct.AddElement(new Paragraph("วันที่ " + DateTime.ParseExact(dic.GetValue("item26"), "yyMMdd", culture).ToString("dd MMMM yyyy", culture), defaultFont)); //.ToString("dd/MM/yyyy")));
-            ct.Go();
-
+            
             //ct.SetSimpleColumn()
             var phrase1 = new Phrase(85);
             phrase1.Add(new Chunk("ชื่อผู้ใช้ไฟฟ้า     ", boldFont));
@@ -118,6 +108,18 @@ namespace WpfApplication1
             doc.Add(phrase4);
 
             doc.Add(new Paragraph());
+            doc.Add(new Paragraph(180, "ชำระผ่าน " + dic.GetValue("item55").Trim(), defaultFont));
+            doc.Add(new Paragraph("FICA Doc. " + dic.GetValue("item48").Trim(), defaultFont));
+
+
+            PdfContentByte cb = writer.DirectContent;
+
+            ColumnText ct = new ColumnText(cb);
+            ct.SetSimpleColumn(420, 260, 500, 380, 0, Element.ALIGN_LEFT);
+            ct.AddElement(new Paragraph("เลขที่ " + dic.GetValue("item4"), defaultFont));
+            ct.AddElement(new Paragraph("สำนักงานใหญ่", defaultFont));
+            ct.AddElement(new Paragraph("วันที่ " + DateTime.ParseExact(dic.GetValue("item26"), "yyMMdd", culture).ToString("dd MMMM yyyy", culture), defaultFont)); //.ToString("dd/MM/yyyy")));
+            ct.Go();
 
             ColumnText ct2 = new ColumnText(cb);
             ct2.SetSimpleColumn(20, 170, 85, 250, 0, Element.ALIGN_LEFT);
@@ -205,8 +207,6 @@ namespace WpfApplication1
             ct10.Go();
 
 
-            doc.Add(new Paragraph(180, "ชำระผ่าน " + dic.GetValue("item55").Trim(), defaultFont));
-            doc.Add(new Paragraph("FICA Doc. " + dic.GetValue("item48").Trim(), defaultFont));
             //var phrase5 = new Phrase();
             //phrase5.Add(new Chunk("วันจดครั้งหลัง    เลขที่ใบแจ้ง",boldFont));
             //doc.Add(phrase5);
