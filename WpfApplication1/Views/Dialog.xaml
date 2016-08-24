@@ -1,0 +1,12 @@
+﻿<Window x:Class="WpfApplication1.Views.Dialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
+        xmlns:view="clr-namespace:WpfApplication1.Views"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        Title="Dialog" Height="600" Width="1000">
+    <Grid>
+        <view:MappingDialog x:Name="MappDialog"></view:MappingDialog>
+    </Grid>
+</Window>

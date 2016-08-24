@@ -145,6 +145,12 @@
     <Compile Include="Views\BatchWindow.xaml.cs">
       <DependentUpon>BatchWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Dialog.xaml.cs">
+      <DependentUpon>Dialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MappingDialog.xaml.cs">
+      <DependentUpon>MappingDialog.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\Batch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BlankPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +205,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\BatchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MappingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

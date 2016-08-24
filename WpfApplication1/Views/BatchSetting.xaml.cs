@@ -54,6 +54,7 @@ namespace WpfApplication1.Views
                         batch.BackgroundImage = ms.ToArray();
                     }
                 }
+                btnMapping.IsEnabled = true;
             }
         }
 
@@ -184,6 +185,16 @@ namespace WpfApplication1.Views
             if (batch != null)
                 batch.ExportToFile = exportToFile.IsEnabled;
 
+        }
+
+        private void OpenMappingDialog(object sender, RoutedEventArgs e)
+        {
+            var image = bgFileNameTextBox.Text;
+            if (!string.IsNullOrEmpty(image))
+            {
+                Dialog mapp = new Dialog(image);
+                mapp.Show();
+            }
         }
     }
 }
