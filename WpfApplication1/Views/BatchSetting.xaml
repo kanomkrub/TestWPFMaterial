@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:WpfApplication1.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="700" d:DesignWidth="300">
+             d:DesignHeight="700" d:DesignWidth="500">
     <GroupBox VerticalAlignment="Top" Header="Details" Style="{DynamicResource MaterialDesignCardGroupBox}">
         <GroupBox.HeaderTemplate>
             <DataTemplate>
@@ -75,6 +75,9 @@
                         <materialDesign:PackIcon Kind="Camera" Width="15" Height="15"/>
                     </Button>
                     <TextBox x:Name="bgFileNameTextBox" materialDesign:HintAssist.Hint=" select background images.." Width="150" HorizontalAlignment="Left" IsReadOnly="True"/>
+                <Button x:Name="btnMapping" Padding="5" Margin="10,2,0,0" Click="OpenMappingDialog" IsEnabled="False">
+                    <materialDesign:PackIcon Kind="Receipt" Width="15" Height="15"/>                    
+                </Button>
                 </StackPanel>
                 <StackPanel Grid.Column="2" Grid.Row="5" HorizontalAlignment="Left" Orientation="Horizontal">
                     <Button Padding="5" Margin="0,2,0,0" Click="SetPathPdf">
