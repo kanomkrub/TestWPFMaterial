@@ -9,7 +9,7 @@
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
-        Title="MainWindow" Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+        Title="JetForm Client(Light)" Height="720" Width="1080" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" MinWidth="300" MaxWidth="520"/>

@@ -73,7 +73,7 @@ namespace WpfApplication1.Views
             this.contentServerPathTextBox.Text = batch.ExportUri;
             this.repositoryTextBox.Text = batch.ExportRepository;
             this.folderTextBox.Text = batch.ExportFolder;
-            this.exportToFile.IsChecked = batch.ExportToFile;
+            this.exportToFile.IsChecked = true;
             this.exportToContentServer.IsChecked = batch.ExportToContentService;
             this.passwordTextBox.Password = batch.ExportPassword;
         }
@@ -94,7 +94,7 @@ namespace WpfApplication1.Views
                     var dic = PdfHelper.ExtractText(lines.First());
                     fileDialog.FileName = System.IO.Path.GetTempFileName();
                     using (Stream pdfTemp = File.OpenWrite(fileDialog.FileName)) {
-                        PdfHelper.WritePDF(dic, pdfTemp);
+                        PdfHelper.WritePDF(lines.First(), pdfTemp);
                     }
                 }
                 //else if (fileDialog.FileName.EndsWith(".pdf", StringComparison.InvariantCultureIgnoreCase))
@@ -189,12 +189,15 @@ namespace WpfApplication1.Views
 
         private void OpenMappingDialog(object sender, RoutedEventArgs e)
         {
-            var image = bgFileNameTextBox.Text;
-            if (!string.IsNullOrEmpty(image))
+            //var image = bgFileNameTextBox.Text;
+            //if (!string.IsNullOrEmpty(image))
+            //{
+            if (batch.BackgroundImage != null)
             {
-                Dialog mapp = new Dialog(image);
+                Dialog mapp = new Dialog(batch.BackgroundImage);
                 mapp.Show();
             }
+            //}
         }
     }
 }

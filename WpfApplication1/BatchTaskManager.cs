@@ -69,10 +69,10 @@ namespace WpfApplication1
         }
         public void DoWork(string inputFileName)
         {
-            var outputFileName = Path.Combine(batch.ExportPath, batch.Name+"_Z_"+Path.GetFileName(inputFileName));
+            var outputFileName = Path.Combine(batch.ExportPath, "_Z_"+Path.GetFileName(inputFileName));
             while (true)
             {
-                outputFileName = Path.Combine(batch.ExportPath, batch.Name + "_Z_" + Path.GetFileNameWithoutExtension(inputFileName) + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".pdf");
+                outputFileName = Path.Combine(batch.ExportPath, "_Z_" + Path.GetFileNameWithoutExtension(inputFileName) + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".pdf");
                 if (!File.Exists(outputFileName)) break;
             }
             var backgroundImage = batch.BackgroundImage;
@@ -105,9 +105,10 @@ namespace WpfApplication1
                 {
                     //byte[] bytes = Encoding.Default.GetBytes(line);
                     //var lineUTF8 = Encoding.UTF8.GetString(bytes);
-                    if (line.Length < 1300) continue;
-                    var dic = PdfHelper.ExtractText(line);
-                    var outputFileName2 = outputFileName.Replace("_Z_", dic["item4"]);
+                    if (line.Length < 10) continue;
+                    //var dic = PdfHelper.ExtractText(line);
+                    var dic = new Dictionary<string, string>();
+                    var outputFileName2 = outputFileName.Replace("_Z_", dic.ContainsKey("item4") ? dic["item4"] : "");
                     using (var outputStream = File.OpenWrite(outputFileName2))
                     using (var imageStream = new MemoryStream(backgroundImage))
                     {
@@ -116,7 +117,7 @@ namespace WpfApplication1
                             var tempFilePath = Path.GetTempFileName();
                             using (var tempFileStream = File.OpenWrite(tempFilePath))
                             {
-                                PdfHelper.WritePDF(dic, tempFileStream);
+                                PdfHelper.WritePDF(line, tempFileStream);
                             }
                             //tempFileStream.Position = 0;
                             using (var tempFileStream = File.OpenRead(tempFilePath))

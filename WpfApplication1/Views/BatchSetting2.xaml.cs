@@ -29,7 +29,7 @@ namespace WpfApplication1.Views
         internal void SetBatch(BatchModel batch)
         {
             enableToggle.IsChecked = batch.IsEnable;
-            realTimeToggle.IsChecked = batch.IsRealTime;
+            realTimeToggle.IsChecked = true;
 
             this.DataContext = batch;
 
@@ -40,23 +40,18 @@ namespace WpfApplication1.Views
         private void enableToggle_Checked(object sender, RoutedEventArgs e)
         {
             Helper.selectedBatch.IsEnable = true;
-            //realTimeToggle.IsEnabled = true;
-            //if (realTimeToggle.IsEnabled) schedulePanel.IsEnabled = false;
-            //else schedulePanel.IsEnabled = true;
         }
 
         private void enableToggle_Unchecked(object sender, RoutedEventArgs e)
         {
             Helper.selectedBatch.IsEnable = false;
-            //realTimeToggle.IsEnabled = false;
-            //if (realTimeToggle.IsEnabled) schedulePanel.IsEnabled = false;
-            //else schedulePanel.IsEnabled = false;
         }
 
         private void realTimeToggle_Checked(object sender, RoutedEventArgs e)
         {
             Helper.selectedBatch.IsRealTime = enableToggle.IsChecked.GetValueOrDefault();
-            schedulePanel.IsEnabled = false;
+            if (schedulePanel != null)
+                schedulePanel.IsEnabled = false;
         }
 
         private void realTimeToggle_Unchecked(object sender, RoutedEventArgs e)

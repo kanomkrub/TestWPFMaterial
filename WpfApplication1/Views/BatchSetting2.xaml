@@ -33,7 +33,7 @@
 
 
             <TextBlock Text="RealTime" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-            <ToggleButton x:Name="realTimeToggle" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <ToggleButton x:Name="realTimeToggle" IsChecked="True"  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"
                               Checked="realTimeToggle_Checked" Unchecked="realTimeToggle_Unchecked"/>
 
             <TextBlock Text="Schedule" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Right"/>

@@ -19,15 +19,16 @@ namespace WpfApplication1.Views
     /// </summary>
     public partial class Dialog : Window
     {
-        public Dialog(string image)
+        public Dialog(byte[] imageBytes)
         {
             InitializeComponent();
-            BitmapImage img = new BitmapImage();
-            img.BeginInit();
-            img.UriSource = new Uri(image);
-            img.EndInit();
+            //BitmapImage img = new BitmapImage();
+            var bitmapSource = (BitmapSource)new ImageSourceConverter().ConvertFrom(imageBytes);
+            //img.BeginInit();
+            //img.UriSource = new Uri(image);
+            //img.EndInit();
             
-            MappDialog.imgMapping.ImageSource = img;
+            MappDialog.imgMapping.ImageSource = bitmapSource;
         }
     }
 }
